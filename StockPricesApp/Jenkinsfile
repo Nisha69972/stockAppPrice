@@ -4,21 +4,21 @@ pipeline {
 			stage('Clean stage') {
 				steps {
 					dir("StockPricesApp") {
-						bat 'C:\\apache-maven-3.6.3\\bin\\mvn clean'
+						bat 'D:\\User based\\apache-maven-3.6.3-bin\\apache-maven-3.6.3\\bin\\mvn clean'
 					}
 				}
 			}
 			stage('Compile stage') {
 				steps {
 					dir("StockPricesApp") {
-						bat 'C:\\apache-maven-3.6.3\\bin\\mvn compile'
+						bat 'D:\\User based\\apache-maven-3.6.3-bin\\apache-maven-3.6.3\\bin\\mvn compile'
 					}
 				}
 			}
 			stage('Install stage') {
 				steps {
 					dir("StockPricesApp") {
-						bat 'C:\\apache-maven-3.6.3\\bin\\mvn install'
+						bat 'D:\\User based\\apache-maven-3.6.3-bin\\apache-maven-3.6.3\\bin\\mvn install'
 					}
 				}
 			}
