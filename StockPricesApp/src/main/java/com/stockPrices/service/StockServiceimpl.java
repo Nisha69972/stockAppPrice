@@ -5,7 +5,9 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,10 @@ public class StockServiceimpl implements StockService {
 
 	@Autowired
 	SimpMessagingTemplate simpMessagingTemplate;
+	
+	@Autowired
+	@Qualifier("taskScheduler")
+	private TaskScheduler taskScheduler;
 
 	@Override
 	public List<StockEntity> getAllStocks() {
@@ -87,7 +93,7 @@ public class StockServiceimpl implements StockService {
 		}
 	}
 
-	@Scheduled(fixedDelay = 3000)
+	@Scheduled(fixedDelay = 3000 )
 	public void updatedPrice() {
 		simpMessagingTemplate.convertAndSend("/topic/stocks", stockRepo.findAll());
 	}
