@@ -32,6 +32,11 @@ public class StockServiceimpl implements StockService {
 
 		return stockRepo.findAll();
 	}
+	
+	@Scheduled(fixedDelay = 3000 )
+	public void updatedPrice() {
+		simpMessagingTemplate.convertAndSend("/topic/stocks", stockRepo.findAll());
+	}
 
 	@Scheduled(fixedRate = 7000)
 	public void updateAppleStockPrice() {
@@ -93,10 +98,10 @@ public class StockServiceimpl implements StockService {
 		}
 	}
 
-	@Scheduled(fixedDelay = 3000 )
-	public void updatedPrice() {
-		simpMessagingTemplate.convertAndSend("/topic/stocks", stockRepo.findAll());
-	}
+	/*
+	 * @Scheduled(fixedDelay = 3000 ) public void updatedPrice() {
+	 * simpMessagingTemplate.convertAndSend("/topic/stocks", stockRepo.findAll()); }
+	 */
 
 	private int generateRandomPrice() {
 		Random random = new Random();
