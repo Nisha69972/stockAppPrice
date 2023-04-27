@@ -27,7 +27,7 @@ public class StockServiceimpl implements StockService {
 		return stockRepo.findAll();
 	}
 
-	@Scheduled(fixedRate = 3000)
+	@Scheduled(fixedRate = 7000)
 	public void updateAppleStockPrice() {
 
 		Optional<StockEntity> stockOptional = stockRepo.findByName("Apple");
@@ -40,7 +40,7 @@ public class StockServiceimpl implements StockService {
 		}
 	}
 
-	@Scheduled(fixedRate = 3000)
+	@Scheduled(fixedRate = 6000)
 	public void updateIBMStockPrice() {
 		Optional<StockEntity> stockOptional = stockRepo.findByName("IBM");
 		if (stockOptional.isPresent()) {
@@ -52,7 +52,7 @@ public class StockServiceimpl implements StockService {
 		}
 	}
 
-	@Scheduled(fixedRate = 3000)
+	@Scheduled(fixedRate = 2000)
 	public void updateInfosysStockPrice() {
 		Optional<StockEntity> stockOptional = stockRepo.findByName("Infosys");
 		if (stockOptional.isPresent()) {
@@ -64,7 +64,7 @@ public class StockServiceimpl implements StockService {
 		}
 	}
 
-	@Scheduled(fixedRate = 3000)
+	@Scheduled(fixedRate = 1000)
 	public void updateRelianceStockPrice() {
 
 		Optional<StockEntity> stockOptional = stockRepo.findByName("Reliance");
@@ -76,7 +76,7 @@ public class StockServiceimpl implements StockService {
 		}
 	}
 
-	@Scheduled(fixedRate = 3000)
+	@Scheduled(fixedRate = 5000)
 	public void updateZensarStockPrice() {
 		Optional<StockEntity> stockOptional = stockRepo.findByName("Zensar");
 		if (stockOptional.isPresent()) {
