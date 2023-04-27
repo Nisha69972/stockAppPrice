@@ -92,8 +92,24 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.6.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>11</source> <!-- set the source code compatibility level -->
+					<target>11</target> <!-- set the target bytecode compatibility level -->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+
+
+
+
+
 
 </project>
