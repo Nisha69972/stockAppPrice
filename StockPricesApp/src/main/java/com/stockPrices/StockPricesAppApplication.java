@@ -17,9 +17,6 @@ public class StockPricesAppApplication {
 		SpringApplication.run(StockPricesAppApplication.class, args);
 	}
 	
-	@Bean
-	public TaskScheduler taskScheduler() {
-	return new ThreadPoolTaskScheduler();
-	}
+	
 
 }

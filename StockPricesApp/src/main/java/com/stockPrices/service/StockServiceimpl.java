@@ -23,10 +23,7 @@ public class StockServiceimpl implements StockService {
 	@Autowired
 	SimpMessagingTemplate simpMessagingTemplate;
 	
-	@Autowired
-	@Qualifier("taskScheduler")
-	private TaskScheduler taskScheduler;
-
+	
 	@Override
 	public List<StockEntity> getAllStocks() {
 
