@@ -22,7 +22,7 @@ public class StockController {
 
 	//@MessageMapping("/stocks")
 	//@SendTo("/topic/stocks") 
-	@GetMapping(value="/menu ", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/stocks ", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<StockEntity> getAllStocks() {
 		return stockService.getAllStocks();
 	}
