@@ -22,15 +22,14 @@ public class StockServiceimpl implements StockService {
 
 	@Autowired
 	SimpMessagingTemplate simpMessagingTemplate;
-	
-	
+
 	@Override
 	public List<StockEntity> getAllStocks() {
 
 		return stockRepo.findAll();
 	}
-	
-	@Scheduled(fixedDelay = 3000 )
+
+	@Scheduled(fixedDelay = 3000)
 	public void updatedPrice() {
 		simpMessagingTemplate.convertAndSend("/topic/stocks", stockRepo.findAll());
 	}
