@@ -1,15 +1,21 @@
 version: 0.2
-phases:
-  build:
-     commands:
-- echo Entered the build phase...
-- cd StockPricesApp 
-- mvn clean package
-post_build:
-    commands:
-- echo Build completed successfully
-artifacts:
-  files:
-- StockPricesApp/target/StockPricesApp-0.0.1-SNAPSHOT.jar
-  discard-paths: yes
 
+phases:
+ install:
+  runtine-versions: 
+    java: openidk17
+    docker: 19
+  pre build:
+    commands:
+      - echo Logging in to Docker Hub..
+      - echo docker login -u nisha26 -p Nisha@261220
+    build:
+    commands:
+      - echo Building the Spring Boot application...
+       -./mnvnw clean package -DskipTests-true
+       - echo Building the Docker Image...
+       - docker bulld -t sharadrajore/stockimage:latest .
+    post build: 
+     commands:
+       - echo Pushing the Docker Image to Docker Hub..
+       - docker push nisha26/stockimage:latest
