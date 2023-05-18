@@ -1,21 +1,21 @@
 version: 0.2
 
 phases:
- install:
-  runtine-versions: 
-    java: openidk17
-    docker: 19
-  pre build:
+  install:
+    runtime-versions:
+      docker: latest
+  pre_build:
     commands:
-      - echo Logging in to Docker Hub..
-      - echo docker login -u nisha26 -p Nisha@261220
-    build:
+      - echo Logging in to Docker Hub...
+  build:
     commands:
       - echo Building the Spring Boot application...
-       -./mnvnw clean package -DskipTests-true
-       - echo Building the Docker Image...
-       - docker bulld -t sharadrajore/stockimage:latest .
-    post build: 
-     commands:
-       - echo Pushing the Docker Image to Docker Hub..
-       - docker push nisha26/stockimage:latest
+      - mvn clean package
+      - echo Building the Docker image...
+      - docker build -t nisha26/stockpriceapp:latest .
+  post_build:
+    commands:
+      - echo Pushing the Docker image to Docker Hub...
+      - docker login -u nisha26 -p Nisha@261220
+      - docker push nisha26/stockpriceapp:latest
+             
