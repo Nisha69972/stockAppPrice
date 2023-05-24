@@ -16,6 +16,9 @@ phases:
   post_build:
     commands:
       - echo Pushing the Docker image to Docker Hub...
-      - docker login -u nisha26 -p Nisha@261220
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker push nisha26/stockpriceapp:latest
+  artifacts:
+    files:
+       - StockPricesApp/target/StockPricesApp-0.0.1-SNAPSHOT.jar
              
